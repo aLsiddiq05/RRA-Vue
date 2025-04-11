@@ -99,7 +99,7 @@ export default {
     getProfilenAduan(id) {
       axios.request({
         method: 'GET',
-        url: `http://localhost:3000/api/pengguna/${id}`,
+        url: `https://backend-aduan.amiersiddiq.com/api/pengguna/${id}`,
         // params: {id: id},
         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
       }).then((response) => {

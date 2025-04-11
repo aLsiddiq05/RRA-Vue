@@ -38,7 +38,7 @@ export default {
       const that = this
       axios({
         method: 'post',
-        url: 'http://localhost:3000/auth/login',
+        url: 'https://backend-aduan.amiersiddiq.com/auth/login',
         data: {
           username: this.username,
           password: this.password

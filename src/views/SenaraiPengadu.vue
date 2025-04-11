@@ -80,7 +80,7 @@ export default {
 
       axios.request({
         method: "GET",
-        url: "http://localhost:3000/api/pengguna",
+        url: "https://backend-aduan.amiersiddiq.com/api/pengguna",
         params: { page: this.currentPage, pageSize: this.pageSize },
         headers: { Authorization: "Bearer " + localStorage.getItem("token") }
       }).then((response) => {

@@ -90,16 +90,19 @@ export default {
       this.butiranLength = this.butiran.length
     },
     async submitAduan() {
-      // if (!this.tajuk || !this.butiran) {
-      //   Swal.fire({
-      //     icon: "warning",
-      //     title: "Incomplete Form",
-      //     text: "Please fill in all fields before submitting.",
-      //   });
-      //   return;
-      // }
+      const trimmedTajuk = this.tajuk.trim();
+      const trimmedButiran = this.butiran.trim();
 
-      if (this.tajuk.length > 100 || this.butiran.length > 1000) {
+      if (!trimmedTajuk || !trimmedButiran) {
+        Swal.fire({
+          icon: "warning",
+          title: "Incomplete Form",
+          text: "Please fill in all fields before submitting.",
+        });
+        return;
+      }
+
+      if (trimmedTajuk.length > 100 || trimmedButiran.length > 1000) {
         Swal.fire({
           icon: "warning",
           title: "Exceeded Character Limit",
@@ -111,7 +114,7 @@ export default {
       try {
         const response = await axios.request({
           method: "post",
-          url: "http://localhost:3000/api/aduan",
+          url: "https://backend-aduan.amiersiddiq.com/api/aduan",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
